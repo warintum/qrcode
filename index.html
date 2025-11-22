@@ -10,7 +10,7 @@
 
     <style>
         :root {
-            --primary-color: #D32F2F; /* สีแดงตามภาพ */
+            --primary-color: #D32F2F; 
             --primary-light: #ffebee;
             --bg-color: #F8F9FA;
             --card-bg: #FFFFFF;
@@ -21,221 +21,73 @@
             --radius: 16px;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Prompt', sans-serif; background-color: var(--bg-color); color: var(--text-main); padding-bottom: 80px; }
 
-        body {
-            font-family: 'Prompt', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            padding-bottom: 80px; /* เผื่อพื้นที่ให้ Bottom Nav */
-        }
-
-        /* --- Header --- */
-        header {
-            background: var(--card-bg);
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
-
-        .brand {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
+        /* Header */
+        header { background: var(--card-bg); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .brand { font-size: 1.2rem; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 5px; }
         .brand span { color: var(--primary-color); }
         .menu-icon { font-size: 1.5rem; color: var(--text-main); cursor: pointer; }
 
-        /* --- Container --- */
-        .container {
-            padding: 20px;
-            max-width: 480px; /* จำกัดความกว้างให้เหมือนมือถือ */
-            margin: 0 auto;
-        }
+        /* Container */
+        .container { padding: 20px; max-width: 480px; margin: 0 auto; }
 
-        /* --- Input Card --- */
-        .card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 20px;
-            border: 1px solid #f0f0f0;
-        }
+        /* Cards & Inputs */
+        .card { background: var(--card-bg); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); margin-bottom: 20px; border: 1px solid #f0f0f0; }
+        .input-group { margin-bottom: 15px; }
+        .input-label { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 8px; display: block; }
+        .custom-input { width: 100%; background: var(--input-bg); border: none; padding: 14px 16px; border-radius: 12px; font-family: 'Prompt', sans-serif; font-size: 1rem; color: var(--text-main); outline: none; transition: 0.2s; }
+        .custom-input:focus { box-shadow: 0 0 0 2px var(--primary-light); }
 
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        .input-label {
-            font-size: 0.9rem;
-            color: var(--text-sub);
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .custom-input {
-            width: 100%;
-            background: var(--input-bg);
-            border: none;
-            padding: 14px 16px;
-            border-radius: 12px;
-            font-family: 'Prompt', sans-serif;
-            font-size: 1rem;
-            color: var(--text-main);
-            outline: none;
-            transition: 0.2s;
-        }
-
-        .custom-input:focus {
-            box-shadow: 0 0 0 2px var(--primary-light);
-        }
-
-        /* Custom File Upload */
-        .file-upload-wrapper {
-            position: relative;
-            width: 100%;
-            height: 50px;
-            background: var(--input-bg);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
-            color: var(--text-sub);
-            cursor: pointer;
-            overflow: hidden;
-        }
-        
-        .file-upload-wrapper input[type=file] {
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-
+        /* File Upload */
+        .file-upload-wrapper { position: relative; width: 100%; height: 50px; background: var(--input-bg); border-radius: 12px; display: flex; align-items: center; padding: 0 15px; color: var(--text-sub); cursor: pointer; overflow: hidden; }
+        .file-upload-wrapper input[type=file] { position: absolute; left: 0; top: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
         .upload-icon { margin-right: 10px; font-size: 1.2rem; }
 
-        /* --- Action Button --- */
-        .btn-primary {
-            width: 100%;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 12px;
-            font-family: 'Prompt', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
-            transition: 0.2s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-        }
-
+        /* Button */
+        .btn-primary { width: 100%; background: var(--primary-color); color: white; border: none; padding: 14px; border-radius: 12px; font-family: 'Prompt', sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3); transition: 0.2s; display: flex; justify-content: center; align-items: center; gap: 8px; }
         .btn-primary:active { transform: scale(0.98); }
 
-        /* --- QR Result Area --- */
-        .qr-container {
+        /* QR Result Area */
+        .qr-container { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 10px; min-height: 200px; }
+        .qr-frame { position: relative; padding: 15px; background: white; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid #eee; }
+        
+        /* Logo Overlay (สำหรับการแสดงผลบนหน้าจอ) */
+        .logo-overlay { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            width: 50px; height: 50px; 
+            background: white; border-radius: 8px; padding: 4px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); object-fit: contain; 
+            display: none; 
+        }
+        #qrcode img { border-radius: 4px; display: block; }
+
+        .download-btn {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            width: 100%;
+            padding: 10px;
+            border-radius: 12px;
+            margin-top: 15px;
+            font-family: 'Prompt';
+            font-weight: 500;
+            cursor: pointer;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-top: 10px;
-            min-height: 200px;
+            gap: 8px;
+            transition: 0.2s;
         }
+        .download-btn:hover { background: var(--primary-light); }
 
-        .qr-frame {
-            position: relative;
-            padding: 15px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            border: 1px solid #eee;
-        }
-
-        /* ปรับแต่ง Logo ตรงกลาง */
-        .logo-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px; /* ขนาด Logo */
-            height: 50px;
-            background: white;
-            border-radius: 12px;
-            padding: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            object-fit: contain;
-            display: none; /* ซ่อนก่อนถ้าไม่มีรูป */
-        }
-
-        #qrcode img {
-            border-radius: 8px; /* ทำให้มุม QR โค้งนิดหน่อย */
-        }
-
-        .download-text {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: var(--primary-color);
-            cursor: pointer;
-            text-decoration: underline;
-            display: none;
-        }
-
-        /* --- Bottom Navigation --- */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: white;
-            padding: 10px 20px 20px 20px; /* เผื่อ Safe area ของ iPhone */
-            display: flex;
-            justify-content: space-around;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.03);
-            z-index: 99;
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #999;
-            font-size: 0.75rem;
-            gap: 4px;
-            cursor: pointer;
-            width: 60px;
-        }
-
+        /* Bottom Nav */
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 10px 20px 20px 20px; display: flex; justify-content: space-around; box-shadow: 0 -5px 15px rgba(0,0,0,0.03); z-index: 99; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; color: #999; font-size: 0.75rem; gap: 4px; cursor: pointer; width: 60px; }
         .nav-item i { font-size: 1.5rem; margin-bottom: 2px; }
         .nav-item.active { color: var(--primary-color); font-weight: 500; }
-        .nav-item.active .nav-bg { 
-            background: var(--primary-light); 
-            padding: 5px 15px; 
-            border-radius: 20px;
-            margin-bottom: 2px;
-        }
-
+        .nav-item.active .nav-bg { background: var(--primary-light); padding: 5px 15px; border-radius: 20px; margin-bottom: 2px; }
     </style>
 </head>
 <body>
@@ -246,13 +98,11 @@
     </header>
 
     <div class="container">
-        
         <div class="card">
             <div class="input-group">
                 <label class="input-label">ลิงก์เว็บไซต์ (URL) หรือ ข้อความ</label>
                 <input type="text" id="urlInput" class="custom-input" placeholder="เช่น https://www.google.com">
             </div>
-
             <div class="input-group">
                 <label class="input-label">อัปโหลด Logo (แสดงตรงกลาง)</label>
                 <div class="file-upload-wrapper">
@@ -261,50 +111,31 @@
                     <input type="file" id="logoInput" accept="image/*">
                 </div>
             </div>
-
-            <button class="btn-primary" onclick="generateQR()">
-                สร้าง QR Code
-            </button>
+            <button class="btn-primary" onclick="generateQR()">สร้าง QR Code</button>
         </div>
 
         <div class="card" id="resultCard" style="display:none;">
             <h3 style="text-align:center; margin-bottom:15px; font-size:1.1rem;">QR Code ของคุณ</h3>
-            
             <div class="qr-container">
                 <div class="qr-frame" id="qrWrapper">
                     <div id="qrcode"></div>
                     <img id="logoOverlay" class="logo-overlay" src="" alt="Logo">
                 </div>
             </div>
-
-            <div style="text-align: center;">
-                <p class="download-text" onclick="downloadQR()" style="display: block;">ดาวน์โหลดรูปภาพ</p>
-            </div>
+            <button class="download-btn" onclick="downloadQRWithMerge()">
+                <i class="ph ph-download-simple"></i> ดาวน์โหลดรูปภาพ
+            </button>
         </div>
-
     </div>
 
     <div class="bottom-nav">
-        <div class="nav-item">
-            <i class="ph ph-wallet"></i>
-            <span>เติมพอยท์</span>
-        </div>
-        <div class="nav-item active">
-            <div class="nav-bg"><i class="ph ph-qr-code"></i></div>
-            <span>สร้าง QR</span>
-        </div>
-        <div class="nav-item">
-            <i class="ph ph-house"></i>
-            <span>หน้าหลัก</span>
-        </div>
-        <div class="nav-item">
-            <i class="ph ph-user"></i>
-            <span>บัญชี</span>
-        </div>
+        <div class="nav-item"><i class="ph ph-wallet"></i><span>เติมพอยท์</span></div>
+        <div class="nav-item active"><div class="nav-bg"><i class="ph ph-qr-code"></i></div><span>สร้าง QR</span></div>
+        <div class="nav-item"><i class="ph ph-house"></i><span>หน้าหลัก</span></div>
+        <div class="nav-item"><i class="ph ph-user"></i><span>บัญชี</span></div>
     </div>
 
     <script>
-        // Elements
         const urlInput = document.getElementById('urlInput');
         const logoInput = document.getElementById('logoInput');
         const fileName = document.getElementById('fileName');
@@ -312,89 +143,116 @@
         const logoOverlay = document.getElementById('logoOverlay');
         const resultCard = document.getElementById('resultCard');
         
-        let userLogo = null;
+        let userLogoBase64 = null;
+        let qrcodeObj = null;
 
-        // Handle File Input Change
+        // Handle File Input
         logoInput.addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (file) {
                 fileName.innerText = file.name;
                 const reader = new FileReader();
                 reader.onload = function(event) {
-                    userLogo = event.target.result;
-                    logoOverlay.src = userLogo;
+                    userLogoBase64 = event.target.result;
+                    logoOverlay.src = userLogoBase64;
                 };
                 reader.readAsDataURL(file);
             } else {
                 fileName.innerText = "เลือกรูปภาพ...";
-                userLogo = null;
+                userLogoBase64 = null;
                 logoOverlay.style.display = 'none';
             }
         });
 
-        // Generate QR Logic
         function generateQR() {
             const url = urlInput.value.trim();
-            
-            if (!url) {
-                alert("กรุณากรอก URL หรือข้อความก่อนครับ");
-                return;
-            }
+            if (!url) { alert("กรุณากรอก URL หรือข้อความก่อนครับ"); return; }
 
-            // Clear old QR
             qrDiv.innerHTML = "";
-            
-            // Show Result Card
             resultCard.style.display = 'block';
             
-            // Generate new QR
-            // ใช้ qrcode.js library
-            new QRCode(qrDiv, {
+            // สร้าง QR Code
+            qrcodeObj = new QRCode(qrDiv, {
                 text: url,
                 width: 200,
                 height: 200,
                 colorDark : "#000000",
                 colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H // ใช้ High Error Correction เพื่อให้ใส่ Logo แล้วยังสแกนได้
+                correctLevel : QRCode.CorrectLevel.H
             });
 
-            // Handle Logo Display
-            if (userLogo) {
+            if (userLogoBase64) {
                 logoOverlay.style.display = 'block';
             } else {
                 logoOverlay.style.display = 'none';
             }
 
-            // Scroll to result
-            setTimeout(() => {
-                resultCard.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+            setTimeout(() => { resultCard.scrollIntoView({ behavior: 'smooth' }); }, 100);
         }
 
-        // (Optional) Simple Download Logic
-        // หมายเหตุ: การดาวน์โหลดแบบรวม Logo ต้องใช้ Canvas วาดทับ 
-        // แต่ในโค้ดพื้นฐานนี้ การกดดาวน์โหลดอาจจะได้แค่ตัว QR หรือต้องใช้ library เสริมอย่าง html2canvas
-        // ด้านล่างคือแบบง่าย (เฉพาะ QR)
-        function downloadQR() {
+        // --- ฟังก์ชันใหม่สำหรับรวมภาพและดาวน์โหลด ---
+        function downloadQRWithMerge() {
+            // 1. หาทรัพยากร (รูป QR และ รูป Logo)
             const qrImg = qrDiv.querySelector("img");
-            if(qrImg && qrImg.src) {
-                const link = document.createElement("a");
-                link.href = qrImg.src;
-                link.download = "qrcode.png";
-                link.click();
+            
+            // ถ้า qrcodejs ยังไม่ render เป็น img (บางทีมันเป็น canvas) ให้หา canvas แทน
+            let sourceCanvas = qrDiv.querySelector("canvas");
+            
+            if (!qrImg && !sourceCanvas) {
+                alert("กำลังประมวลผล กรุณารอสักครู่...");
+                return;
+            }
+
+            // สร้าง Canvas จำลองเพื่อวาดรูปใหม่
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+            const size = 1000; // กำหนดขนาดใหญ่เพื่อให้ชัด (High Resolution)
+
+            canvas.width = size;
+            canvas.height = size;
+
+            // วาด QR Code ลงไป
+            // ต้องดึงภาพจาก src ของ img หรือจาก canvas ที่ library สร้าง
+            if (qrImg) {
+                ctx.drawImage(qrImg, 0, 0, size, size);
             } else {
-                // Fallback ถ้า QR ยังเป็น canvas
-                const canvas = qrDiv.querySelector("canvas");
-                if(canvas) {
-                    const link = document.createElement("a");
-                    link.href = canvas.toDataURL();
-                    link.download = "qrcode.png";
-                    link.click();
-                }
+                ctx.drawImage(sourceCanvas, 0, 0, size, size);
             }
-            if(userLogo) {
-                alert("หมายเหตุ: การดาวน์โหลดในโหมดนี้อาจไม่ติด Logo (ต้องใช้ Canvas ขั้นสูง) แนะนำให้แคปหน้าจอเพื่อความสวยงามที่สุดครับ");
+
+            // ถ้ามี Logo ให้วาดทับลงไป
+            if (userLogoBase64) {
+                const logo = new Image();
+                logo.src = userLogoBase64;
+                
+                logo.onload = () => {
+                    // คำนวณขนาด Logo (20% ของ QR)
+                    const logoSize = size * 0.22;
+                    const center = (size - logoSize) / 2;
+
+                    // วาดกล่องสีขาวรองหลัง Logo (กันลาย QR ตีกับ Logo)
+                    ctx.fillStyle = "#ffffff";
+                    // สร้างขอบโค้งมนให้กล่องขาว (Optional) หรือวาดสี่เหลี่ยมธรรมดา
+                    // เพื่อความง่ายใช้วาดสี่เหลี่ยมขยายออกมานิดหน่อย
+                    const padding = 15; 
+                    ctx.fillRect(center - padding, center - padding, logoSize + (padding*2), logoSize + (padding*2));
+
+                    // วาด Logo
+                    ctx.drawImage(logo, center, center, logoSize, logoSize);
+
+                    // สั่ง Save
+                    saveCanvas(canvas);
+                };
+            } else {
+                // ถ้าไม่มี Logo ก็ Save เลย
+                saveCanvas(canvas);
             }
+        }
+
+        function saveCanvas(canvas) {
+            const link = document.createElement("a");
+            link.download = "qrcode-accpro.png";
+            link.href = canvas.toDataURL("image/png");
+            link.click();
         }
     </script>
 </body>
